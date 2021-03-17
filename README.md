@@ -2,6 +2,9 @@
 
 # Mapbender docker (SQLite)
 
+Mapbender docker setup example configured to use a sqlite database.
+
+
 Mapbender is a web based geoportal framework.
 
 [Official site](https://mapbender.org/?q=en) | [Live demo](https://demo.mapbender.org/) | [News on Twitter](https://twitter.com/mapbender)
