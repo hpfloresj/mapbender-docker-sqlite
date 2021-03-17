@@ -1,4 +1,4 @@
-![Mapbender](./application/app/Resources/public/image/Mapbender-logo.png)
+![Mapbender](./dockerfiles/mapbender_shared/logo.png)
 
 # Mapbender docker (SQLite)
 
