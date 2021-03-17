@@ -20,6 +20,6 @@ For detailed usage information, including installation and integration topics, p
 
 Run ```./mapbender_dev_up``` to create and start a Mapbender development setup.
 
-Open ```localhost:4000``` in your browser to access the webinterface ( user & password: mb_root).
+Open ```localhost:4000``` in your browser to access the webinterface (user & password: mb_root).
 
 Mapbender code is accessible in ```volumes/mapbender/application/```.
