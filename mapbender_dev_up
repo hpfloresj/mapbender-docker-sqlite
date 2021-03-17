@@ -1,0 +1,2 @@
+#!/bin/bash
+USER_UID="1002" USER_GID="1002" docker-compose -f docker-compose.yml -f docker-compose_dev.yml up --build

@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  mb_php-fpm:
+    build:
+      context: ./dockerfiles/php-fpm_7.2
+    environment:
+      DATABASE_DRIVER: pdo_sqlite # MySQL: pdo_mysql |  SQLite: pdo_sqlite | PostgreSQL: pdo_pgsql | Oracle OCI8: oci8 | Oracle PDO: pdo_oci 
+      DATABASE_HOST: mb_db
+      DATABASE_PORT: 5432
+      DATABASE_PATH: "~"
+      DATABASE_NAME: mapbender
+      DATABASE_USER: mb_db_user
+      DATABASE_PASSWORD: mb_db_pass
+    volumes:
+      - ./volumes/mapbender/:/srv/www/mapbender
+      - ./dockerfiles/mapbender_shared/parameters.yml:/srv/www/parameters.yml:ro
+      - ./dockerfiles/mapbender_shared/mapbender-setup.sh:/var/mapbender/mapbender-setup:ro
+      - ./dockerfiles/php-fpm_7.2/php-fpm.conf:/usr/local/etc/php-fpm.d/php-fpm.conf:ro
+    restart: always
+  mb_apache:
+    build:
+      context: ./dockerfiles/apache
+    restart: always
+    volumes:
+      - ./volumes/mapbender/:/srv/www/mapbender:ro
+      - ./dockerfiles/apache/mapbender_apache_site.conf:/etc/apache2/sites-enabled/mapbender.conf

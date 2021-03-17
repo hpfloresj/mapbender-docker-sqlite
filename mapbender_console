@@ -1,0 +1,3 @@
+#!/bin/bash
+PHPCONTAINER_ID=$(docker ps -aqf "name=mb_php-fpm")
+docker exec --user www-data -ti $PHPCONTAINER_ID php /srv/www/mapbender/application/app/console "$@"

@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  mb_php-fpm:
+    environment:
+      XDEBUG_SESSION: 0
+      MAPBENDER_BUILD_URL: https://mapbender3.org/builds/mapbender-starter-current.tar.gz # visit https://mapbender.org/builds/ and copy the url of your desired mapbender build. Currently tar.gz archives are supported. Setup will only run if the folder volumes/mapbender folder is empty.
+      #MAPBENDER_GIT_REF: feature/backend-redesign-323 # if this variable is set and a Mapbender <branch> or <commit> from https://github.com/mapbender/mapbender is specified the git ref version will be build instead of the build referenced by MAPBENDER_BUILD_URL
+      #MAPBENDER_STARTER_GIT_REF: tags/v3.2.3 # git <branch> or <commit>
+      DATABASE_DRIVER: pdo_sqlite # MySQL: pdo_mysql |  SQLite: pdo_sqlite | PostgreSQL: pdo_pgsql | Oracle OCI8: oci8 | Oracle PDO: pdo_oci 
+      DATABASE_HOST: mb_db
+      DATABASE_PORT: 5432
+      DATABASE_PATH: "~"
+      DATABASE_NAME: mapbender
+      DATABASE_USER: mb_db_user
+      DATABASE_PASSWORD: mb_db_pass
+      USER_UID: ${USER_UID} # uid of the *nix user account you are working with on the host machine
+      USER_GID: ${USER_GID} # gid
+    command: bash -c "/var/mapbender/mapbender-setup && docker-php-entrypoint php-fpm"
+  mb_apache:
+    ports:
+      - "4000:80"
