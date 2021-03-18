@@ -5,7 +5,7 @@ echo "Start Mapbender setup"
 
 MAPBENDER_FOLDER=/srv/www/mapbender
 
-if [ -v USER_UID ]; then
+if [ -n "$USER_UID" ]; then
   # NOT FOR PRODUCTION
   usermod -u $USER_UID www-data
   groupmod -g $USER_GID www-data
