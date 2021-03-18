@@ -16,10 +16,27 @@ For detailed usage information, including installation and integration topics, p
 - docker
 - docker-compose
 
+Visit https://docs.docker.com/desktop/ (docker) and https://docs.docker.com/compose/install/ (docker-compose) and follow the installation instructions for your operating system. 
+
 ## Getting started
 
+### Download
+
+Download and unpack the repository and ```cd``` into the repositories root folder using your terminal (Linux/Mac) or Powershell (Windows).
+
+### Start the setup
+
+#### Linux 
+
 Run ```./mapbender_dev_up``` to create and start a Mapbender development setup.
+
+#### Windows 
+
+Run ```docker-compose -f docker-compose.yml -f docker-compose_dev.yml up --build``` to create and start a Mapbender development setup.
+
+### Access Mapbender using your browser
 
 Open ```localhost:4000``` in your browser to access the webinterface (user & password: mb_root).
 
 Mapbender code is accessible in ```volumes/mapbender/application/```.
+
