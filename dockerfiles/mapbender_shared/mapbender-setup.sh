@@ -5,9 +5,11 @@ echo "Start Mapbender setup"
 
 MAPBENDER_FOLDER=/srv/www/mapbender
 
-# NOT FOR PRODUCTION
-usermod -u $USER_UID www-data
-groupmod -g $USER_GID www-data
+if [ -v USER_UID ]; then
+  # NOT FOR PRODUCTION
+  usermod -u $USER_UID www-data
+  groupmod -g $USER_GID www-data
+fi
 
 echo $APACHE_RUN_DIR
 
