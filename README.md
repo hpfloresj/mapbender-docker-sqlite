@@ -16,7 +16,18 @@ For detailed usage information, including installation and integration topics, p
 - docker
 - docker-compose
 
+### Docker installation
+
+#### MacOS / Windows
+
 Visit https://docs.docker.com/desktop/ (docker) and https://docs.docker.com/compose/install/ (docker-compose) and follow the installation instructions for your operating system. 
+
+#### Linux
+
+It is important to follow the installation instructions linked below since software repositories provided by linux distributions usually deliver outdated docker and docker-compose versions.
+
+docker: https://docs.docker.com/engine/install 
+docker-compose: https://docs.docker.com/compose/install/
 
 ## Getting started
 
